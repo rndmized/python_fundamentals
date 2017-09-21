@@ -7,6 +7,7 @@
 # for various values (1, 2, 3, …). Next, change the loop condition to stop once the value has 
 # stopped changing (or only changes by a very small delta). How close are you to the math.sqrt value?
 ##
+import math as m
 
 ########## TO DO  ###########
 def newton_method(z,x):
@@ -14,5 +15,11 @@ def newton_method(z,x):
     return z_next
 
 
-print(newton_method(2,3))
-
+x,z= 30.0,1.0
+while z != x:
+    if z != newton_method(z,x): 
+        z = newton_method(z,x)
+    else:
+        break
+    print("Current guess:",z)
+print("Square Root",m.sqrt(x))
