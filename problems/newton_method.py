@@ -9,17 +9,23 @@
 ##
 import math as m
 
-########## TO DO  ###########
+#Given an aproximation(z) and the number which we are looking the square root of(x),
+# return the next aproximation to the square root of x.
 def newton_method(z,x):
     z_next = z - ((z*z - x) / (2 * z))
     return z_next
 
+#Assign values to x (Number we want the square root of) and z(The first aproximation to the sauqre root of x)
+x,z= 400000,1.0
 
-x,z= 30.0,1.0
-while z != x:
+#While the aproximation does not match the actual square root loop.
+while z != m.sqrt(x):
+    #Check wether the values of the aproximation start repeating or not and scape the loop
     if z != newton_method(z,x): 
         z = newton_method(z,x)
+        print("Current guess:",z)
     else:
+        print("Final guess:",z)
         break
-    print("Current guess:",z)
-print("Square Root",m.sqrt(x))
+#Print actual square root to compare
+print("Square Root:",m.sqrt(x))
